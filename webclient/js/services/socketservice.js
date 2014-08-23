@@ -36,7 +36,7 @@ angular.module('WhiteboardApp')
                     return socket;
                 },
                 connect: function() {
-                    socket = io('http://localhost:8090');
+                    socket = io('http://intense-brook-1575.herokuapp.com');
                     return socket;
                 }
             }

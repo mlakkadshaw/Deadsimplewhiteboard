@@ -5,7 +5,8 @@
   "author": "Mohammed Lakkadshaw",
   "dependencies": {
     "socket.io": "~1.0.6",
-    "node-static": "~0.7.4"
+    "node-static": "~0.7.4",
+    "underscore": "~1.6.0"
   },
   "engines": {
     "node": "0.10.x"

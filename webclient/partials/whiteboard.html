@@ -1,0 +1,46 @@
+<div class="toolbar">
+    <ul style="list-style: none; display: inline">
+        <li ng-click="clearPage()" style="margin-left: 0;" class="icon"><i class="fa fa-file-o"></i></li>
+
+        <li ng-class="{ active: pencilTool }" ng-click="changeTool('pencilTool')" class="icon pencil-icon"><i class="fa fa-pencil"></i></li>
+
+        <li ng-class="{ active: eraserTool }" ng-click="changeTool('eraserTool')" class="icon eraser-icon"><i class="fa fa-eraser"></i></li>
+
+        <li ng-class="{ active: textTool }" ng-click="changeTool('textTool')" class="icon text-icon">Aa</li>
+    </ul>
+
+    <ul class="color-pallet">
+        <li ng-class="{ active: colorOne}" ng-click="changeColor('colorOne')" class="one"></li>
+        
+        <li ng-class="{ active: colorTwo }" ng-click="changeColor('colorTwo')" class="two"></li>
+        
+        <li ng-class="{ active: colorThree }" ng-click="changeColor('colorThree')" class="three"></li>
+        
+        <li ng-class="{ active: colorFour }" ng-click="changeColor('colorFour')" class="four"></li>
+
+        <li ng-class="{ active: colorFive }" ng-click="changeColor('colorFive')" class="five"></li>
+
+        <li ng-class="{ active: colorSix }" ng-click="changeColor('colorSix')" class="six"></li>
+
+        <li ng-class="{ active: colorSeven }" ng-click="changeColor('colorSeven')" class="seven"></li>
+
+        <li ng-class="{ active: colorEight }" ng-click="changeColor('colorEight')" class="eight"></li>
+    </ul>
+
+    <ul class="thickness-pallet">
+        <li ng-click="changePenSize('finePen')" ng-class="{active: finePen}"class='one'></li>
+        
+        <li ng-class="{active: thinPen}" ng-click="changePenSize('thinPen')" class='two'></li>
+
+        <li ng-class="{active: mediumPen}" ng-click="changePenSize('mediumPen')" class="three"></li>
+
+        <li ng-class="{active: thickPen}" ng-click="changePenSize('thickPen')" class="four"></li>
+    </ul>
+
+    <span class="status">Board ID: {{board_id}} <a ng-click="disconnect()" href="">Disconnect</a></span>
+
+</div>
+
+<canvas whiteboard class="board" id="myCanvas" resize="true">
+    
+</canvas>

@@ -1,0 +1,13 @@
+{
+  "name": "WhiteboardServer",
+  "version": "0.0.0",
+  "description": "Server for whiteboard",
+  "author": "Mohammed Lakkadshaw",
+  "dependencies": {
+    "socket.io": "~1.0.6",
+    "node-static": "~0.7.4"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

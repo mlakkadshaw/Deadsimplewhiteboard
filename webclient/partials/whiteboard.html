@@ -37,10 +37,14 @@
         <li ng-class="{active: thickPen}" ng-click="changePenSize('thickPen')" class="four"></li>
     </ul>
 
-    <span class="status">Board ID: {{board_id}} <a ng-click="disconnect()" href="">Disconnect</a></span>
+    <span class="status"><span class="tooltip" title="Share it with anyone you want to share your screen with.">Board ID: {{board_id}} </span><a ng-click="disconnect()" href="">Disconnect</a></span>
 
 </div>
 
 <canvas whiteboard class="board" id="myCanvas" resize="true">
     
 </canvas>
+<script>
+      $('.tooltip').tooltipster();
+      $('.tooltip').tooltipster('show');
+</script>

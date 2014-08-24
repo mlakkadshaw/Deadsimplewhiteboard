@@ -7,7 +7,7 @@ angular.module('WhiteboardApp')
                 join: function(board_id, user) {
                     var defer = $q.defer();
 
-                    socket = io('http://intense-brook-1575.herokuapp.com');
+                    socket = io();
 
                     socket.on('connected_to_board', function(data) {
                         localStorage.board_id = data.board_id;
@@ -36,7 +36,7 @@ angular.module('WhiteboardApp')
                     return socket;
                 },
                 connect: function() {
-                    socket = io('http://intense-brook-1575.herokuapp.com');
+                    socket = io();
                     return socket;
                 }
             }

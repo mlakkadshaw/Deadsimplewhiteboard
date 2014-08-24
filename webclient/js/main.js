@@ -15,10 +15,15 @@ angular.module('WhiteboardApp', ['ui.router'])
                 })
                 .state('connect', {
                     url: '/connect',
-                    templateUrl: 'partials/connect.html',
+                    templateUrl: 'partials/home.html',
+                    controller: 'ConnectCtrl'
+                })
+                .state('home', {
+                    url: '/home',
+                    templateUrl: 'partials/home.html',
                     controller: 'ConnectCtrl'
                 });
 
-            $urlRouterProvider.otherwise('/connect');
+            $urlRouterProvider.otherwise('/home');
         }
     ]);

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DeadSimpleWhiteboard</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=800">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/rrssb.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32151073-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <div class="nav">
+                <h2>DeadSimpleWhiteboard</h2>
+                <ul class='nav-items'>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="http://blog.mohammedlakkadshaw.com">Blog</a></li>
+                    <li><a href="http://mohammedlakkadshaw.com">Work</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+
+            <div class="hero" style="height: 417px; width: 132%; background-image: url('https://farm3.staticflickr.com/2927/14164315519_d78b0f50e8_b.jpg');background-size: cover;position: relative;margin-left: -177px;margin-right: -177px;color: white;margin-top: 0px; text-shadow: 4px 4px 7px rgba(150, 150, 150, 1);">
+                <p style="padding-top: 135px;width: 600px;margin: 0 auto;">
+                Simple open-source collaborative white-board.
+                </p>
+                <a href="#getstarted" ng-click="create()" class="btn btn-primary">Create a new board</a>
+                    <br>
+                    <span style="font-size: 20px">or</span> 
+                    <br>
+                <input ng-model="board_id" class="form-input" style="color: black; font-size: 18px; padding: 5px;" type="text" placeholder='Board ID' /> <a ng-click="connect(board_id)" href="" class="btn btn-success">Join existing</a>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature">
+                      <img src="svg/heart.svg" width="20px" height="20px" alt="" style='display: inline-block; margin-right: 10px;'/>
+                    <h4 style="display: inline">Opensource</h4>
+                    <p>
+                     This is totally free to and open-source, comes with an MIT license. Download the source from <a href="https://github.com/mlakkadshaw/Deadsimplewhiteboard">GitHub</a>.
+                    </p> 
+
+                </div>
+                
+
+                <div class="feature" style="float: right">
+                   <img style="display: inline; margin-right: 10px" src="svg/beaker.svg" width="25px" height="25px" alt="" />
+                    <h4 style="display: inline;">Latest technologies </h4>
+                    <p>
+                     Highly optimised, and built with latest technologies, like <a target="_blank" href="http://nodejs.org/">Node.JS</a>, <a target="_blank" href="https://angularjs.org">AngularJS</a>, and <a target="_blank" href="http://paperjs.org">PaperJS</a>.</p> 
+                </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                 <div class="feature">
+                    <h4 style="display: inline">Cross platform</h4>
+                    <p>
+                        Works on desktop, laptops and tablet computers.
+                    </p> 
+                </div>
+                
+                <div class="feature" style="float: right">
+                   <!-- <img src="svg/connections.svg" width="25px" height="25px" alt="" style='display: inline-block; margin-right: 10px;'/> -->
+                    <h4 style="display: inline">Multi-user</h4>
+                    <p>
+                      Easily create white-boards and share it with any number of users. 
+                    </p> 
+                </div>
+            </div>
+
+      
+                
+                <hr>
+                <div style="margin-left: auto; margin-right: auto; width: 600px; margin-top: 50px;">
+                    <h1>Host it on your own server</h1>
+                    <p>The current server is heroku instance, if you want to host it on your server, <a href="">read the guide</a> on deploying it on your own servers. </p>
+                </div>
+            <hr>
+            <div id="about" style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 50px">
+                <h1>Built by</h1>
+                <p>DeadSimpleWhiteboard is created by <a href="http://mohammedlakkadshaw.com">Mohammed Lakkadshaw & Company</a></p>
+                <p>We are development agency, we build apps for Web and Mobile devices, and also develop secure and decentralized platforms.</p>
+                <p> If your are interested hiring us or want to learn more about us <a href="http://mohammedlakkadshaw.com">Click here.</a></p>
+            </div>
+            <hr>
+            <div style="margin-right: auto; margin-left: auto; width: 600px">
+                <h1>Share</h1>
+                <!-- Buttons start here. Copy this ul to your document. -->
+<ul class="rrssb-buttons clearfix">
+    <li class="facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://deadsimplewhiteboard.herokuapp.com" class="popup">
+            <span class="icon">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+                    <path d="M27.825,4.783c0-2.427-2.182-4.608-4.608-4.608H4.783c-2.422,0-4.608,2.182-4.608,4.608v18.434
+                        c0,2.427,2.181,4.608,4.608,4.608H14V17.379h-3.379v-4.608H14v-1.795c0-3.089,2.335-5.885,5.192-5.885h3.718v4.608h-3.726
+                        c-0.408,0-0.884,0.492-0.884,1.236v1.836h4.609v4.608h-4.609v10.446h4.916c2.422,0,4.608-2.188,4.608-4.608V4.783z"/>
+                </svg>
+            </span>
+            <span class="text">facebook</span>
+        </a>
+    </li>
+    <li class="twitter">
+        <a href="http://twitter.com/home?status=DeadSimpleWhiteboard: Most simple open-source collaborative whiteboard http://deadsimplewhiteboard.herokuapp.com" class="popup">
+            <span class="icon">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+                <path d="M24.253,8.756C24.689,17.08,18.297,24.182,9.97,24.62c-3.122,0.162-6.219-0.646-8.861-2.32
+                    c2.703,0.179,5.376-0.648,7.508-2.321c-2.072-0.247-3.818-1.661-4.489-3.638c0.801,0.128,1.62,0.076,2.399-0.155
+                    C4.045,15.72,2.215,13.6,2.115,11.077c0.688,0.275,1.426,0.407,2.168,0.386c-2.135-1.65-2.729-4.621-1.394-6.965
+                    C5.575,7.816,9.54,9.84,13.803,10.071c-0.842-2.739,0.694-5.64,3.434-6.482c2.018-0.623,4.212,0.044,5.546,1.683
+                    c1.186-0.213,2.318-0.662,3.329-1.317c-0.385,1.256-1.247,2.312-2.399,2.942c1.048-0.106,2.069-0.394,3.019-0.851
+                    C26.275,7.229,25.39,8.196,24.253,8.756z"/>
+                </svg>
+            </span>
+            <span class="text">twitter</span>
+        </a>
+    </li>
+</ul>
+<!-- Buttons end here -->
+            </div>
+        </div>
+    
+
+        <footer style='border-top: 1px solid rgb(238,238,238);
+margin-top: 40px;
+text-align: center;
+padding-top: 20px;
+padding-bottom: 10px;
+color: rgb(192, 171, 171);'>
+            <a style="color: inherit; text-decoration: none;" href="http://mohammedlakkadshaw.com">Mohammed Lakkadshaw & Company</a>
+        </footer>
+    </body>
+</html>

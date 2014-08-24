@@ -638,3 +638,67 @@ a.pure-button-selected {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+
+.container {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.nav {
+    display: block;
+}
+
+.nav-items {
+    width: 300px;
+    float: right;
+    margin-top: -48px;
+}
+
+.nav-items li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.hero {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    font-size: 25px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.feature-box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    margin-top: 50px;
+}
+
+.feature {
+    width: 200px;
+    display: inline-block;
+}
+
+.option {
+    display: inline-block;
+    border-radius: 5px;
+    background: #009be7;
+    font-weight: 200;
+    padding: 20px;
+    font-size: 20px;
+    height: 100px;
+    margin-top: 100px;
+    width: 255px;
+    color: white;
+}
+
+.option a {
+    color: white;
+}
+
+.option a:hover {
+    color: black;
+}

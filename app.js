@@ -26,7 +26,8 @@ io.on('connection', function(socket) {
         var user = {
             id: activeBoards[board].users.length + 1,
             name: data.name,
-            is_admin: true
+            is_admin: true,
+            socket_id: socket.id
         };
 
         activeBoards[board].users.push(user);

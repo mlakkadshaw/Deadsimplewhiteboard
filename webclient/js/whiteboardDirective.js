@@ -63,11 +63,17 @@ angular.module('WhiteboardApp').directive('whiteboard', ['Socket',
                             pointText.fontSize = 16;
                             pointText.fillColor = $scope.activeColor;
 
+                            /*
                             $scope.socket.emit('draw', {
                                 tool: 'textTool',
                                 pointText: pointText.exportJSON(),
                                 sender: $scope.me.socket_id,
                                 room: localStorage.board_id,
+                            });*/
+
+                            $scope.$emit('whiteboard_draw', {
+                                tool: 'textTool',
+                                pointText: pointText.exportJSON(),
                             });
                         }
                         $(".tempareas").remove();
@@ -152,7 +158,7 @@ angular.module('WhiteboardApp').directive('whiteboard', ['Socket',
                     }
 
                     if ($scope.pencilTool || $scope.eraserTool) {
-                        $scope.socket.emit('draw', {
+                        /*$scope.socket.emit('draw', {
                             tool: 'pencilTool',
                             path: path.exportJSON(),
                             color: $scope.activeColor,
@@ -160,13 +166,44 @@ angular.module('WhiteboardApp').directive('whiteboard', ['Socket',
                             sender: $scope.me.socket_id,
                             room: localStorage.board_id,
                             activity: 'up'
+                        });*/
+
+                        $scope.$emit('whiteboard_draw', {
+                            tool: 'pencilTool',
+                            path: path.exportJSON(),
+                            color: $scope.activeColor,
+                            penSize: $scope.activePenSize,
+                            activity: 'up'
                         });
                     }
-
-
                 }
 
-                if ($scope.socket) {
+
+                $scope.$on('draw', function(ev, data) {
+                    if ($scope.me.socket_id !== data.sender) {
+                        if (data.tool === 'pencilTool') {
+
+                            remotePath = new paper.Path();
+                            remotePath.importJSON(data.path);
+                            paper.view.draw();
+                        }
+
+
+                        if (data.tool === 'textTool') {
+                            var pointText = new paper.PointText();
+                            pointText.importJSON(data.pointText);
+                            paper.view.draw();
+                        }
+                    }
+                });
+
+                $scope.$on('clear_page', function() {
+                    paper.project.clear();
+                    paper.view.draw();
+                });
+
+
+                /*if ($scope.socket) {
                     var remotePath;
                     $scope.socket.on('draw', function(data) {
                         if ($scope.me.socket_id !== data.sender) {
@@ -196,7 +233,7 @@ angular.module('WhiteboardApp').directive('whiteboard', ['Socket',
                         paper.project.clear();
                         paper.view.draw();
                     });
-                }
+                }*/
             }
         };
     }

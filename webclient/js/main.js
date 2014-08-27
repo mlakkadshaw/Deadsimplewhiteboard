@@ -9,7 +9,7 @@ angular.module('WhiteboardApp', ['ui.router'])
         function($stateProvider, $urlRouterProvider) {
             $stateProvider
                 .state('whiteboard', {
-                    url: '/whiteboard',
+                    url: '/whiteboard/:id',
                     templateUrl: 'partials/whiteboard.html',
                     controller: 'WhiteboardCtrl'
                 })

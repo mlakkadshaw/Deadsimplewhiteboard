@@ -1,12 +1,11 @@
-angular.module('WhiteboardApp').controller('WhiteboardCtrl', ['$scope', 'Socket', '$location',
-    function($scope, Socket, $location) {
+angular.module('WhiteboardApp').controller('WhiteboardCtrl', ['$scope', 'Socket', '$location', '$stateParams',
+    function($scope, Socket, $location, $stateParams) {
         //Default selected tools
         $scope.pencilTool = true;
         $scope.colorOne = true;
         $scope.thinPen = true;
 
-        $scope.me = JSON.parse(localStorage.user);
-        $scope.board_id = localStorage.board_id;
+        $scope.board_id = $stateParams.id;
 
         var colorObject = {
             colorOne: '#414141',
@@ -32,29 +31,18 @@ angular.module('WhiteboardApp').controller('WhiteboardCtrl', ['$scope', 'Socket'
         var _activeColor, _activePenSize;
 
 
-        $scope.connect = function(board_id) {
-            $scope.socket = Socket.connect();
-            $scope.socket.emit('join_board', {
-                board_id: board_id,
-                name: 'Mohammed Lakkadshaw'
+        Socket.getOrJoin($stateParams.id).then(function(socket) {
+            $scope.me = JSON.parse(localStorage.user);
+
+            socket.on('draw', function(data) {
+                $scope.$emit('draw', data);
             });
-        };
 
-
-        if (Socket.is_connected()) {
-            $scope.socket = Socket.getSocket();
-        } else if (localStorage.board_id) {
-            Socket.connect();
-            $scope.socket = Socket.getSocket();
-            $scope.socket.emit('join_board', {
-                board_id: localStorage.board_id,
-                name: 'Mohammed Lakkadshaw'
+            socket.on('clear_page', function(data) {
+                $scope.$emit('clear_page', data);
             });
-            $scope.connect(localStorage.board_id);
+        });
 
-        } else {
-            $location.path("/connect");
-        }
 
         $scope.changeTool = function(tool) {
             $scope.pencilTool = false;
@@ -113,7 +101,7 @@ angular.module('WhiteboardApp').controller('WhiteboardCtrl', ['$scope', 'Socket'
             paper.project.clear();
             paper.view.draw();
 
-            $scope.socket.emit('clear_page', {
+            Socket.send('clear_page', {
                 room: localStorage.board_id
             });
         };
@@ -121,8 +109,18 @@ angular.module('WhiteboardApp').controller('WhiteboardCtrl', ['$scope', 'Socket'
         $scope.disconnect = function() {
             delete localStorage.user;
             delete localStorage.board_id;
-            $scope.socket.close();
             $location.path("/connect");
         }
+
+        $scope.createShareLink = function() {
+            window.prompt("Copy the link below. Anyone with this link will be able to see and draw on this whiteboard", window.location.origin + "/#/whiteboard/" + $scope.board_id);
+        }
+
+        $scope.$on('whiteboard_draw', function(e, data) {
+            data.room = $stateParams.id;
+            data.sender_id = $scope.me.socket_id;
+            Socket.send('draw', data);
+        });
+
     }
 ]);

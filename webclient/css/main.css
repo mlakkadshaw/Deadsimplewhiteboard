@@ -702,3 +702,7 @@ a.pure-button-selected {
 .option a:hover {
     color: black;
 }
+
+.steps {
+    width: 550px;
+}
